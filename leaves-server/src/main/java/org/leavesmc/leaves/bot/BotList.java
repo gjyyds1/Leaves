@@ -47,14 +47,14 @@ public class BotList {
     private final MinecraftServer server;
 
     public final List<ServerBot> bots = new CopyOnWriteArrayList<>();
-    private final BotDataStorage dataStorage;
+    private final IPlayerDataStorage dataStorage;
 
     private final Map<UUID, ServerBot> botsByUUID = Maps.newHashMap();
     private final Map<String, ServerBot> botsByName = Maps.newHashMap();
 
     public BotList(MinecraftServer server) {
         this.server = server;
-        this.dataStorage = new BotDataStorage(server.storageSource);
+        this.dataStorage = new WorldBotDataStorage(server.storageSource, this);
         INSTANCE = this;
     }
 
