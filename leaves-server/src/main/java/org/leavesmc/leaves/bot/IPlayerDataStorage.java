@@ -10,4 +10,6 @@ public interface IPlayerDataStorage {
     void save(Player player);
 
     Optional<CompoundTag> load(Player player);
+    
+    CompoundTag getSavedBotList();
 }
